@@ -11,7 +11,7 @@ import numpy as np
 st.set_page_config(
     page_title="Dashboard Analisis Sentimen",
     page_icon=📈",
-    layout="wide",
+    "layout="wide",
     initial_sidebar_state="expanded"
 )
 
