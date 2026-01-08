@@ -280,10 +280,7 @@ if uploaded_file is not None:
                                 colormap='Greens',
                                 max_words=100
                             ).generate(text_positive)
-                            fig_pos, ax_pos = plt.subplots(figsize=(10, 5))
-                            ax_pos.imshow(wordcloud_pos, interpolation='bilinear')
-                            ax_pos.axis('off')
-                            st.pyplot(fig_pos)
+                            st.image(wordcloud_pos.to_array())
                     else:
                         st.info("Tidak ada data sentimen positif")
                 
@@ -300,10 +297,7 @@ if uploaded_file is not None:
                                 colormap='Reds',
                                 max_words=100
                             ).generate(text_negative)
-                            fig_neg, ax_neg = plt.subplots(figsize=(10, 5))
-                            ax_neg.imshow(wordcloud_neg, interpolation='bilinear')
-                            ax_neg.axis('off')
-                            st.pyplot(fig_neg)
+                            st.image(wordcloud_neg.to_array())
                     else:
                         st.info("Tidak ada data sentimen negatif")
             else:
