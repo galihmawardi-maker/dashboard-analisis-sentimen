@@ -3,3 +3,4 @@ pandas
 plotly
 wordcloud
 matplotlib
+numpy<2.0.0
