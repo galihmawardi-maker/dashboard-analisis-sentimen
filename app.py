@@ -15,29 +15,82 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS - Dark Glassmorphism
 st.markdown("""
 <style>
-    .main-header {
-        font-size: 3rem;
+    /* Main Background */
+    .stApp {
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    }
+    
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background: rgba(26, 26, 46, 0.7);
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Cards with Glass Effect */
+    .element-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    
+    /* Metrics Cards */
+    [data-testid="stMetricValue"] {
+        font-size: 2.5rem !important;
         font-weight: bold;
-        color: #1f77b4;
-        text-align: center;
-        margin-bottom: 2rem;
+        background: linear-gradient(120deg, #00d4ff, #7b2ff7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1rem;
-        border-radius: 10px;
+    
+    /* Headers */
+    h1, h2, h3 {
+        color: #ffffff !important;
+        text-shadow: 0 0 20px rgba(123, 47, 247, 0.5);
+    }
+    
+    /* Buttons */
+    .stButton>button {
+        background: linear-gradient(120deg, #00d4ff, #7b2ff7);
         color: white;
-        text-align: center;
-    }
-    .stTabs [data-baseweb="tab-list"] button {
-        font-size: 1.1rem;
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 2rem;
         font-weight: 600;
+        box-shadow: 0 4px 15px rgba(123, 47, 247, 0.4);
+        transition: all 0.3s ease;
     }
+    
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(123, 47, 247, 0.6);
+    }
+    
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 10px 20px;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(120deg, #00d4ff, #7b2ff7);
 </style>
 """, unsafe_allow_html=True)
+
 
 # Judul
 st.markdown('<h1 class="main-header">📊 Dashboard Analisis Sentimen Program MBG</h1>', unsafe_allow_html=True)
