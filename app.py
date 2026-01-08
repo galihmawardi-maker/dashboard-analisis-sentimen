@@ -30,16 +30,6 @@ st.markdown("""
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Cards with Glass Effect */
-    .element-container {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    }
     
     /* Metrics Cards */
     [data-testid="stMetricValue"] {
