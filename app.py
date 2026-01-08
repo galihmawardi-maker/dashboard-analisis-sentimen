@@ -45,6 +45,25 @@ st.markdown("""
         color: #ffffff !important;
         text-shadow: 0 0 20px rgba(123, 47, 247, 0.5);
     }
+
+        
+    /* Text Alignment */
+    h1, h2 {
+        text-align: center !important;
+    }
+    
+    h3 {
+        text-align: left !important;
+    }
+    
+    p {
+        text-align: justify !important;
+        line-height: 1.6 !important;
+    }
+    
+    ul, ol, li {
+        text-align: left !important;
+    }
     
     /* Buttons */
     .stButton>button {
