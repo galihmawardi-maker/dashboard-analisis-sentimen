@@ -280,7 +280,7 @@ if uploaded_file is not None:
                                 colormap='Greens',
                                 max_words=100
                             ).generate(text_positive)
-                            st.image(wordcloud_pos.to_array())
+                            st.image(wordcloud_pos.to_image())
                     else:
                         st.info("Tidak ada data sentimen positif")
                 
@@ -297,7 +297,7 @@ if uploaded_file is not None:
                                 colormap='Reds',
                                 max_words=100
                             ).generate(text_negative)
-                            st.image(wordcloud_neg.to_array())
+                            st.image(wordcloud_neg.to_image())
                     else:
                         st.info("Tidak ada data sentimen negatif")
             else:
