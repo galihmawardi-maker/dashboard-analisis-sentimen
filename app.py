@@ -30,12 +30,39 @@ st.markdown("""
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Cards with Glass Effect */
+    
+    /* Metrics Cards */
+    [data-testid="stMetricValue"] {
+        font-size: 2.5rem !important;
+        font-weight: bold;
+        background: linear-gradient(120deg, #00d4ff, #7b2ff7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
     
     /* Headers */
     h1, h2, h3 {
         color: #ffffff !important;
         text-shadow: 0 0 20px rgba(123, 47, 247, 0.5);
+    }
+
+        
+    /* Text Alignment */
+    h1, h2 {
+        text-align: center !important;
+    }
+    
+    h3 {
+        text-align: left !important;
+    }
+    
+    p {
+        text-align: justify !important;
+        line-height: 1.6 !important;
+    }
+    
+    ul, ol, li {
+        text-align: left !important;
     }
     
     /* Buttons */
@@ -272,12 +299,10 @@ if uploaded_file is not None:
                                 colormap='Greens',
                                 max_words=100
                             ).generate(text_positive)
-                            fig_pos, ax_pos = plt.subplots(figsize=(10, 5))
-                            ax_pos.imshow(wordcloud_pos, interpolation='bilinear')
-                            ax_pos.axis('off')
-                            st.pyplot(fig_pos)
+                            st.image(wordcloud_pos.to_image())
                     else:
-                            ax_pos.imshow(wordcloud_pos.to_array(), interpolation='bilinear')                
+                        st.info("Tidak ada data sentimen positif")
+                
                 with col2:
                     st.subheader("❌ Word Cloud - Sentimen Negatif")
                     negative_data = df[df[sentiment_col].str.lower().str.contains('negative', na=False)]
@@ -291,13 +316,11 @@ if uploaded_file is not None:
                                 colormap='Reds',
                                 max_words=100
                             ).generate(text_negative)
-                            fig_neg, ax_neg = plt.subplots(figsize=(10, 5))
-                            ax_neg.imshow(wordcloud_neg, interpolation='bilinear')
-                            ax_neg.axis('off')
-                            st.pyplot(fig_neg)
+                            st.image(wordcloud_neg.to_image())
                     else:
-                            ax_neg.imshow(wordcloud_neg.to_array(), interpolation='bilinear')       
-                                        st.warning("⚠️ Kolom teks tidak ditemukan untuk membuat Word Cloud")
+                        st.info("Tidak ada data sentimen negatif")
+            else:
+                st.warning("⚠️ Kolom teks tidak ditemukan untuk membuat Word Cloud")
         
         with tab4:
             st.header("🔍 Analisis Detail")
@@ -439,4 +462,3 @@ st.markdown("""
     <p>📊 Dashboard Analisis Sentimen Program MBG | Built with Streamlit</p>
 </div>
 """, unsafe_allow_html=True)
-
