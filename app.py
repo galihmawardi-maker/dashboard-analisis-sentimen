@@ -31,24 +31,6 @@ st.markdown("""
     }
     
     /* Cards with Glass Effect */
-    .element-container {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    }
-    
-    /* Metrics Cards */
-    [data-testid="stMetricValue"] {
-        font-size: 2.5rem !important;
-        font-weight: bold;
-        background: linear-gradient(120deg, #00d4ff, #7b2ff7);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
     
     /* Headers */
     h1, h2, h3 {
@@ -295,8 +277,7 @@ if uploaded_file is not None:
                             ax_pos.axis('off')
                             st.pyplot(fig_pos)
                     else:
-                        st.info("Tidak ada data sentimen positif")
-                
+                            ax_pos.imshow(wordcloud_pos.to_array(), interpolation='bilinear')                
                 with col2:
                     st.subheader("❌ Word Cloud - Sentimen Negatif")
                     negative_data = df[df[sentiment_col].str.lower().str.contains('negative', na=False)]
@@ -315,8 +296,7 @@ if uploaded_file is not None:
                             ax_neg.axis('off')
                             st.pyplot(fig_neg)
                     else:
-                        st.info("Tidak ada data sentimen negatif")
-            else:
+                            ax_neg.imshow(wordcloud_neg.to_array(), interpolation='bilinear')            else:
                 st.warning("⚠️ Kolom teks tidak ditemukan untuk membuat Word Cloud")
         
         with tab4:
