@@ -296,8 +296,7 @@ if uploaded_file is not None:
                             ax_neg.axis('off')
                             st.pyplot(fig_neg)
                     else:
-                            ax_neg.imshow(wordcloud_neg.to_array(), interpolation='bilinear')            else:
-                st.warning("⚠️ Kolom teks tidak ditemukan untuk membuat Word Cloud")
+                            ax_neg.imshow(wordcloud_neg.to_array(), interpolation='bilinear')                st.warning("⚠️ Kolom teks tidak ditemukan untuk membuat Word Cloud")
         
         with tab4:
             st.header("🔍 Analisis Detail")
